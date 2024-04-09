@@ -1,6 +1,6 @@
-angular.module('contatooh', []);
+angular.module('contatooh', ['ngRoute', 'ngResource']);
 
-angular.module('contatooh', ['ngRoute'])
+angular.module('contatooh')
     .config(function ($routeProvider) {
         $routeProvider.when('/contatos', {
             templateUrl: 'partials/contatos.html',
