@@ -1,8 +1,10 @@
 angular.module('contatooh').controller('ContatosController',
-    function ($scope, $resource) {
+    function ($scope, Contato) {
         $scope.contatos = [];
+
         $scope.filtro = '';
-        var Contato = $resource('/contatos/:id');
+
+        $scope.mensagem = {texto: ''};
 
         function buscaContatos() {
             Contato.query(
@@ -15,13 +17,21 @@ angular.module('contatooh').controller('ContatosController',
                 }
             );
         }
+
+        $scope.remove = function (contato) {
+            Contato.delete({id: contato._id},
+                buscaContatos,
+                function (erro) {
+                    $scope.mensagem = {
+                        texto: 'Não foi possível remover o contato'
+                    };
+                    console.log(erro);
+                }
+            );
+        };
+
         $scope.init = function () {
             buscaContatos();
         }
         $scope.init();
-    });
-
-angular.module('contatooh').controller('ContatoController',
-    function ($scope, $routeParams) {
-        console.log($routeParams.contatoId);
     });
