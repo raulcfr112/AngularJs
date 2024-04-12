@@ -2,7 +2,7 @@ var MongoClient = require('mongodb').MongoClient;
 var ObjectID = require('mongodb').ObjectID;
 
 // ObjectID de algum contato existente
-var _idProcurado = new ObjectID('53ee689e89bd201218944bba');
+var _idProcurado = new ObjectID('5ee3cdabec1a6b89909c71bf');
 MongoClient.connect('mongodb://127.0.0.1:27017/contatooh',
     function(erro, db) {
         if(erro) throw err;
