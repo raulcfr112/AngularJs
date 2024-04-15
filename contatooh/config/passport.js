@@ -1,7 +1,7 @@
 var passport = require('passport');
 var GitHubStrategy = require('passport-github').Strategy;
 var mongoose = require('mongoose');
-var accessToken = ""
+var accessToken = '';
 
 module.exports = function() {
     var Usuario = mongoose.model('Usuario');
