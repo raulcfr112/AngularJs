@@ -1,6 +1,6 @@
 angular.module('contatooh')
     .factory('meuInterceptor',
-        function ($location, $q) {
+        ["$location", "$q", function ($location, $q) {
             return {
                 responseError: function (resposta) {
                     if (resposta.status == 401) {
@@ -9,5 +9,5 @@ angular.module('contatooh')
                     return $q.reject(resposta);
                 }
             };
-        }
+        }]
     );
